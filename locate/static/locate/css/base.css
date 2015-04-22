@@ -14,6 +14,9 @@ body {
     background-color: #E6EBE6;
     display: flex;
     display: -webkit-flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
 }
 
 #header {
@@ -45,10 +48,18 @@ body {
 
 #left-nav {
   /* 12em is the width of the columns */
-    -webkit-flex: 0 0 12em;
     flex: 0 0 12em;
+        -webkit-flex: 0 0 12em;
+        -webkit-box-flex: 0 0 12em;
+        -moz-box-flex: 0 0 12em;
+        -ms-flex: 0 0 12em;
     background-color: #8FAE8F;
     order: -1;
+        -webkit-box-ordinal-group: -1;
+        -moz-box-ordinal-group: -1;
+        -ms-flex-order: -1;
+        -webkit-order: -1;
+
 }
 
 #copyright {
@@ -122,14 +133,20 @@ body {
 
 @media all and (max-width: 949px) {
    #content-wrapper {
-       flex-direction: column;
-       -webkit-flex-direction: column;
+      flex-direction: column;
+        -webkit-flex-direction: column;
+        -webkit-box-flex-direction: column;
+        -moz-box-flex-direction: column;
+        -ms-flex-direction: column;
    }
 
    #left-nav {
        padding: 10px 0px 0px 0px;
        flex:0;
-       -webkit-flex: 0;
+        -webkit-flex: 0;
+        -webkit-box-flex: 0;
+        -moz-box-flex: 0;
+        -ms-flex: 0;
    }
    .side-bar-ul {
        margin: 0px 0px 0px 0px;
@@ -149,6 +166,10 @@ body {
 @media all and (min-width: 950px) {
   #content-wrapper {
       flex-direction: row;
-      -webkit-flex-direction: row;
+        -webkit-flex-direction: row;
+        -webkit-box-flex-direction: row;
+        -moz-box-flex-direction: row;
+        -ms-flex-direction: row;
+
   }
 }
