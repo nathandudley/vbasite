@@ -10,6 +10,10 @@ $(function() {
     var img_original_width = img.width;
     var img_original_height = img.height;
 
+    if ($('#classroom-layout').width === 0) {
+        location.reload();
+    }
+
     drawCanvas();
 
     $('#classroom-layout').off('click').on('click', function(evt) {
