@@ -3,7 +3,7 @@ from locate.models import ClassroomLayout
 
 def gethelp(request):
     layout = ClassroomLayout.objects.all()[0]
-    # TODO: Add "active" property to Classroom Layouts and search using that property
+    # TODO: Add "active" property to classroom layouts and search using that property
     context = {'layout': layout}
     # TODO: Add queue to model
     context['queue_count'] = 0
