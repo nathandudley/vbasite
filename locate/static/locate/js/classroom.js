@@ -10,9 +10,11 @@ $(function() {
     var img_original_width = img.width;
     var img_original_height = img.height;
 
-    if ($('#classroom-layout').width === 0) {
-        location.reload();
-    }
+//    console.log($('#classroom-layout').width);
+//
+//    if ($('#classroom-layout').width === 0) {
+//        location.reload();
+//    }
 
     drawCanvas();
 

@@ -4,7 +4,7 @@
  <title>Question</title>
 {% endblock %}
 
-{% block static-files %}
+{% block static-css %}
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'locate/css/studentquery.css' %}" />
 {% endblock %}
@@ -21,4 +21,8 @@
 
 {% block footer-content %}
     <div id="queue">There are {{ queue_count }} students in line.</div>
+{% endblock %}
+
+{% block static-js %}
+
 {% endblock %}

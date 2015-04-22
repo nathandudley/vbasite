@@ -4,11 +4,9 @@
  <title>Get Help</title>
 {% endblock %}
 
-{% block static-files %}
+{% block static-css %}
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'locate/css/classroom.css' %}" />
-    <script src="{% static 'locate/js/classroom.js' %}"></script>
-    <script src="{% static 'locate/js/drawcircle.js' %}"></script>
 {% endblock %}
 
 {% block left-nav-content %}
@@ -28,4 +26,9 @@
 
 {% block footer-content %}
     <div id="queue">There are {{ queue_count }} students in line.</div>
+{% endblock %}
+
+{% block static-js %}
+<script src="{% static 'locate/js/classroom.js' %}"></script>
+<script src="{% static 'locate/js/drawcircle.js' %}"></script>
 {% endblock %}
