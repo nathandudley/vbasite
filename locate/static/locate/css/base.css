@@ -14,7 +14,6 @@ body {
     background-color: #E6EBE6;
     display: flex;
     display: -webkit-flex;
-    display: -moz-box;
     display: -ms-flexbox;
 }
 
@@ -55,7 +54,6 @@ body {
     background-color: #8FAE8F;
 
     -webkit-box-ordinal-group: -1;
-    -moz-box-ordinal-group: -1;
     -ms-flex-order: -1;
     -webkit-order: -1;
     order: -1;
@@ -144,7 +142,6 @@ body {
        flex:0;
         -webkit-flex: 0;
         -webkit-box-flex: 0;
-        -moz-box-flex: 0;
         -ms-flex: 0;
    }
    .side-bar-ul {
@@ -167,7 +164,6 @@ body {
       flex-direction: row;
         -webkit-flex-direction: row;
         -webkit-box-flex-direction: row;
-        -moz-box-flex-direction: row;
         -ms-flex-direction: row;
 
   }
