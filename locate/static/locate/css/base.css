@@ -126,7 +126,11 @@ body {
        -webkit-flex-direction: column;
    }
 
-   #left-nav {padding: 10px 0px 0px 0px; flex:0;}
+   #left-nav {
+       padding: 10px 0px 0px 0px;
+       flex:0;
+       -webkit-flex: 0;
+   }
    .side-bar-ul {
        margin: 0px 0px 0px 0px;
        width: auto;
