@@ -5,6 +5,7 @@ from locate import views
 urlpatterns = patterns('',
     url(r'^$', views.gethelp, name='gethelp'),
     url(r'^gethelp/', views.gethelp, name='gethelp'),
+    url(r'^dashboard/', views.dashboard, name='dashboard'),
     url(r'^askquestion/', views.askquestion, name='askquestion'),
 )
 

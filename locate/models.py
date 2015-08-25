@@ -10,3 +10,17 @@ class ClassroomLayout(models.Model):
 
     def __str__(self):
         return self.title
+
+class StudentLocation(models.Model):
+    xcoord = models.DecimalField(max_digits=10, decimal_places=4)
+    ycoord = models.DecimalField(max_digits=10, decimal_places=4)
+
+class Ticket(models.Model):
+    time = models.DateTimeField(auto_now=True)
+    completed = models.BooleanField(default=False)
+    location = models.OneToOneField(StudentLocation, primary_key=False)
+
+
+
+
+

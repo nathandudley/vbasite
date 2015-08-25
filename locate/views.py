@@ -1,5 +1,8 @@
 from django.shortcuts import render
-from locate.models import ClassroomLayout
+from django.core import serializers
+from django.forms.models import model_to_dict
+from locate.models import *
+
 
 def gethelp(request):
     layout = ClassroomLayout.objects.all()[0]
@@ -15,3 +18,15 @@ def askquestion(request):
     context = {'queue_count': 0}
     return render(request, 'locate/studentquery.html', context)
 
+def dashboard(request):
+    coord_data = StudentLocation.objects.all()
+    layout = ClassroomLayout.objects.all()[0]
+
+    # for item in coord_data:
+    #     item['StudentLocation'] = model_to_dict(item['StudentLocation'])
+
+    js_data = serializers.serialize('json', coord_data)
+
+    context = {'layout': layout}
+    context['js_data'] = js_data
+    return render(request, 'locate/ta_dashboard.html', context)

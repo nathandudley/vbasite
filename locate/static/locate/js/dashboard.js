@@ -1,6 +1,7 @@
 /**
-* Created by ndudley on 4/16/15.
-*/
+ * Created by ndudley on 8/24/15.
+ */
+
 $(function() {
 
     var canvas = document.getElementById('classroom-layout');
@@ -10,19 +11,9 @@ $(function() {
     var img_original_width = img.width;
     var img_original_height = img.height;
 
-//    console.log($('#classroom-layout').width);
-//
-//    if ($('#classroom-layout').width === 0) {
-//        location.reload();
-//    }
-
     drawCanvas();
 
-    $('#classroom-layout').off('click').on('click', function(evt) {
-        $(this).drawCircle(evt.pageX, evt.pageY, canvas, img);
-    });
-
-   $(window).resize(function() {
+    $(window).resize(function () {
         drawCanvas()
     });
 
@@ -44,4 +35,16 @@ $(function() {
 
         context.drawImage(img, 0, 0, img.width, img.height);
     }
+
+    raw_array = $.parseJSON(data_from_django);
+    coord_array = [];
+
+    for (index = 0; index < raw_array.length; ++index) {
+        coord_array.push(raw_array[index].fields);
+    }
+
+    for (index = 0; index < coord_array.length; ++index) {
+        $('#classroom-layout').drawCircle(coord_array[index].xcoord, coord_array[index].ycoord, canvas, img);
+    }
+
 });
