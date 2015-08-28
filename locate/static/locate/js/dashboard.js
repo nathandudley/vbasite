@@ -11,11 +11,27 @@ $(function() {
     var img_original_width = img.width;
     var img_original_height = img.height;
 
-    drawCanvas();
+    raw_array = $.parseJSON(data_from_django);
+    console.log(raw_array);
+    coord_array = [];
 
-    $(window).resize(function () {
-        drawCanvas()
+    for (index = 0; index < raw_array.length; ++index) {
+        coord_array.push(raw_array[index].fields);
+    }
+
+    drawCanvas();
+    drawLocationCircles();
+
+    var id;
+    $(window).resize(function() {
+        drawCanvas();
+        clearTimeout(id);
+        id = setTimeout(doneResizing, 500);
     });
+
+    function doneResizing(){
+      drawLocationCircles();
+    }
 
     function drawCanvas() {
         var parent = img.parentNode;
@@ -36,15 +52,25 @@ $(function() {
         context.drawImage(img, 0, 0, img.width, img.height);
     }
 
-    raw_array = $.parseJSON(data_from_django);
-    coord_array = [];
 
-    for (index = 0; index < raw_array.length; ++index) {
-        coord_array.push(raw_array[index].fields);
+    function drawLocationCircles() {
+        for (index = 0; index < coord_array.length; ++index) {
+
+            var canvas_width = $('#classroom-layout').width();
+            var canvas_height = $('#classroom-layout').height();
+
+            var img_width = coord_array[index].img_width;
+            var img_height = coord_array[index].img_height;
+            var xcoord = coord_array[index].xcoord;
+            var ycoord = coord_array[index].ycoord;
+
+            xcoord = canvas_width / img_width * xcoord;
+            ycoord = canvas_height / img_height * ycoord;
+
+            $('#classroom-layout').drawCircle(xcoord, ycoord,
+                                              canvas, img);
+        }
     }
 
-    for (index = 0; index < coord_array.length; ++index) {
-        $('#classroom-layout').drawCircle(coord_array[index].xcoord, coord_array[index].ycoord, canvas, img);
-    }
 
 });

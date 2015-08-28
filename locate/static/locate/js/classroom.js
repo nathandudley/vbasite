@@ -17,13 +17,26 @@ $(function() {
 //    }
 
     drawCanvas();
+    var myTextArea = $('#id_code_submission');
+    var myCodeMirror = CodeMirror.fromTextArea(myTextArea);
 
     $('#classroom-layout').off('click').on('click', function(evt) {
-        $(this).drawCircle(evt.pageX, evt.pageY, canvas, img);
+
+        var offset = $(this).offset();
+        var centerX = (evt.pageX - offset.left);
+        var centerY = (evt.pageY - offset.top);
+
+        $(this).drawCircle(centerX, centerY, canvas, img);
+
+        $('#id_xcoord').val(centerX);
+        $('#id_ycoord').val(centerY);
+        $('#id_img_width').val($(this).width());
+        $('#id_img_height').val($(this).height());
+
     });
 
    $(window).resize(function() {
-        drawCanvas()
+        drawCanvas();
     });
 
     function drawCanvas() {
@@ -44,4 +57,6 @@ $(function() {
 
         context.drawImage(img, 0, 0, img.width, img.height);
     }
+
+
 });

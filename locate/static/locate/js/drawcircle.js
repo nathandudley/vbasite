@@ -2,7 +2,7 @@
  * Created by ndudley on 4/17/15.
  */
 
-$.fn.drawCircle = function(xcoord, ycoord, canvas, img) {
+$.fn.drawCircle = function(centerX, centerY, canvas, img) {
     const CIRCLE_RADIUS_TO_CANVAS_RATIO = 0.02;
     const BEGIN_RADIUS_TO_END_RADIUS_RATIO = 0.07;
     const CIRCLE_GROWTH_TO_BEGIN_RADIUS_RATIO = 2;
@@ -13,9 +13,10 @@ $.fn.drawCircle = function(xcoord, ycoord, canvas, img) {
     var end_radius = canvas.width * CIRCLE_RADIUS_TO_CANVAS_RATIO;
     var begin_radius = end_radius * BEGIN_RADIUS_TO_END_RADIUS_RATIO;
 
-    var offset = $(this).offset();
-    var centerX = (xcoord - offset.left);
-    var centerY = (ycoord - offset.top);
+
+    //console.log(offset);
+    //console.log('ycoord: ' + ycoord + ', ' + 'xcoord: ' + xcoord);
+    //console.log('centerY: ' + centerY + ', ' + 'centerX: ' + centerX);
 
     var radius = begin_radius;
 

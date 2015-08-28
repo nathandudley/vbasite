@@ -1,7 +1,8 @@
 #classroom-layout {
     position: relative;
     border-radius: 10px;
-    display: block;
+    /*display: table-cell;*/
+    /*horizontal-align: middle;*/
     margin-left: auto;
     margin-right: auto;
 }
